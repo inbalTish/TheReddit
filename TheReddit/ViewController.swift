@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        getRedditData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +23,14 @@ class ViewController: UIViewController {
     }
 
 
+    //MARK: - Private methods
+    private func getRedditData() {
+        RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", onSuccess: { data in
+            print(data)
+        
+        }, onError: { error in
+            print(error.localizedDescription)
+        })
+    }
 }
 
