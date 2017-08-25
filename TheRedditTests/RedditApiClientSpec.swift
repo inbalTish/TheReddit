@@ -37,6 +37,19 @@ class RedditApiClientSpec : QuickSpec {
                     expect(listingData?.children[0].kind) == "t3"
                 }
             }
+            
+            context("error") {
+                it("returns error") {
+                    var returnedError: NSError?
+                    let error = NSError(domain: "Reddit page not found error", code: 404, userInfo: nil)
+                    self.stub(uri("https://www.reddit.com/r/ProgrammerHumor/top.json"), failure(error))
+                    RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", onError: { error in
+                        returnedError = error
+                    })
+                    
+                    expect(returnedError).toEventuallyNot(beNil())
+                }
+            }
         }
         
     }
