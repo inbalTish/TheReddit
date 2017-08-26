@@ -14,10 +14,11 @@ class RedditAPIClient: RedditAPIClientProtocol {
     
     static func requestRedditChennelListing(channelName: String,
                                             subredditName: String,
+                                            query: String,
                                             onSuccess: RedditGetListingCallback? = nil,
                                             onError: ErrorCallback? = nil)
     {
-        let urlString = "https://www.reddit.com/r/\(channelName)/\(subredditName).json"
+        let urlString = "https://www.reddit.com/r/\(channelName)/\(subredditName).json" + query
         
         Alamofire.request(urlString)
             .validate()

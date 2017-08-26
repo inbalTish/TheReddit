@@ -11,6 +11,7 @@ import SwiftyJSON
 
 struct Thing {
     var kind: String?
+    var id: String?
     var title: String?
     var permalink: String?
     var thumbnail: String?
@@ -18,6 +19,7 @@ struct Thing {
     
     init(json: JSON) {
         kind = json["kind"].string
+        id = json["data"]["id"].string
         title = json["data"]["title"].string
         permalink = json["data"]["permalink"].string
         thumbnail = json["data"]["thumbnail"].string

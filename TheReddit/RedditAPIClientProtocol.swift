@@ -15,6 +15,7 @@ protocol RedditAPIClientProtocol {
     
     static func requestRedditChennelListing(channelName: String,
                                             subredditName: String,
+                                            query: String,
                                             onSuccess: RedditGetListingCallback?,
                                             onError: ErrorCallback?)
     

@@ -12,7 +12,7 @@ import Nimble
 import Mockingjay
 @testable import TheReddit
 
-class RedditApiClientSpec : QuickSpec {
+class RedditApiClientSpec: QuickSpec {
     
     override func spec() {
         super.spec()

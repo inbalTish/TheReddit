@@ -16,6 +16,7 @@ struct Listing {
     var after: String?
     var before: String?
     
+
     init(json: JSON) {
         kind = json["kind"].string
         modhash = json["data"]["modhash"].string
@@ -24,7 +25,6 @@ struct Listing {
         
         children = [Thing]()
         let childrenJson = json["data"]["children"]
-        print(childrenJson)
         for (_, subjson):(String, JSON) in childrenJson {
             let thing = Thing(json: subjson)
             children.append(thing)
