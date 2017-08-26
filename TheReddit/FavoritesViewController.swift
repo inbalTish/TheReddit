@@ -18,6 +18,7 @@ class FavoritesViewController: UIViewController, TableViewProtocol {
     private var delegateDataSource = TableViewDelegateDatasource()
     private var segueIdentifier = "favoritesToWebView"
     
+    
     //MARK:- Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class FavoritesViewController: UIViewController, TableViewProtocol {
         delegateDataSource.delegate = self
         tableView.delegate = delegateDataSource
         tableView.dataSource = delegateDataSource
+        
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,24 +43,15 @@ class FavoritesViewController: UIViewController, TableViewProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-
-    //MARK:- Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier {
-            if let vc = segue.destination as? ViewController {
-                vc.data = selectedThing
-            }
-        }
-    }
     
-    //MARK: - Private methods
+    //MARK:- Private methods
     private func getFavoritesData() {
         let favorites = UIDataManager.sharedInstance.favorites
         loadTableView(data: favorites)
         if favorites.count == 0 {
             titleLabel.text = "No saved favorites"
         } else {
-            titleLabel.text = "Your favorites"
+            titleLabel.text = ""
         }
     }
     
@@ -66,14 +60,23 @@ class FavoritesViewController: UIViewController, TableViewProtocol {
         tableView.reloadData()
     }
     
+    
     //MARK:- TableViewProtocol
     private var selectedThing: Thing?
     
     func didSelectCell(data: Any) {
         if let thing = data as? Thing {
             selectedThing = thing
-            performSegue(withIdentifier: segueIdentifier, sender: self)
+            openWebViewController()
         }
     }
+    
+    func openWebViewController() {
+        let storyboard = UIStoryboard(name: "WebViewControllerStory", bundle: Bundle.main)
+        let vc = storyboard.instantiateInitialViewController() as! ViewController
+        vc.data = selectedThing
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
+    
 }

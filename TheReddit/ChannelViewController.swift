@@ -19,7 +19,7 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, TableViewPro
     private var delegateDataSource = TableViewDelegateDatasource()
     private var segueIdentifier = "channelToWebView"
     
-    private var posts = [Thing]() {
+    var posts = [Thing]() {
         didSet {
             loadTableView(data: posts)
         }
@@ -39,6 +39,7 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, TableViewPro
         delegateDataSource.delegate = self
         tableView.delegate = delegateDataSource
         tableView.dataSource = delegateDataSource
+        tableView.accessibilityIdentifier = "TableVC_Table"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,27 +62,12 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, TableViewPro
     }
     
 
-    //MARK:- Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier {
-            if let vc = segue.destination as? ViewController {
-                vc.data = selectedThing
-            }
-        }
-    }
-    
-    
-    //MARK: - Private methods
+    //MARK:- Private methods
     private func getRedditData(query: String) {
         RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", query: query, onSuccess: { [unowned self] data in
             self.before = data.before
             self.after = data.after
-
-            if self.posts.count != 0 {
-                self.posts += data.children
-            } else {
-                self.posts = data.children
-            }
+            self.posts += data.children
             
         }, onError: { error in
             print(error.localizedDescription)
@@ -95,16 +81,19 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, TableViewPro
         }
     }
     
-    private func filterPosts(data: [Thing], filter: String) -> [Thing] {
-        var results = [Thing]()
-        for item in data {
-            if let title = item.title?.lowercased() {
-                if title.contains(filter.lowercased()) {
-                    results.append(item)
+    func filterPosts(data: [Thing], filter: String) -> [Thing] {
+        if filter != "" && filter.characters.count >= 3 {
+            var results = [Thing]()
+            for item in data {
+                if let title = item.title?.lowercased() {
+                    if title.contains(filter.lowercased()) {
+                        results.append(item)
+                    }
                 }
             }
+            return results
         }
-        return results
+        return []
     }
     
     private func loadTableView(data: [Any]?) {
@@ -113,17 +102,24 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, TableViewPro
     }
     
     
-    
     //MARK:- TableViewProtocol
     private var selectedThing: Thing?
     
     func didSelectCell(data: Any) {
         if let thing = data as? Thing {
             selectedThing = thing
-            performSegue(withIdentifier: segueIdentifier, sender: self)
+            openWebViewController()
         }
     }
+    
+    func openWebViewController() {
+        let storyboard = UIStoryboard(name: "WebViewControllerStory", bundle: Bundle.main)
+        let vc = storyboard.instantiateInitialViewController() as! ViewController
+        vc.data = selectedThing
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
+    
     //MARK:- UISearchBarDelegate
     private var filteredPosts: [Thing]?
     
@@ -140,4 +136,6 @@ class ChannelViewController: UIViewController, UISearchBarDelegate, TableViewPro
             }        
         }
     }
+    
+    
 }

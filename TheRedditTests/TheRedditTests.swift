@@ -7,17 +7,23 @@
 //
 
 import XCTest
+import SwiftyJSON
 @testable import TheReddit
 
 class TheRedditTests: XCTestCase {
     
+    var systemUnderTest: ChannelViewController!
+    var testsUtils = Utils()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        systemUnderTest = ChannelViewController()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        systemUnderTest = nil
         super.tearDown()
     }
     
@@ -33,4 +39,39 @@ class TheRedditTests: XCTestCase {
         }
     }
     
+    //MARK:- ChannelViewController tests
+    func testFilterPosts() {
+        //Arrange
+        let testCases = ["", "fo", "zzz", "nobody"]
+        
+        var posts = [Thing]()
+        let json = testsUtils.getMockJson(fileName: "PostsDataMock")
+        if let js = json?["children"] {
+            for (_, subjson):(String, JSON) in js {
+                let object = Thing(json: subjson)
+                posts.append(object)
+            }
+        }
+        
+        for (index, element) in testCases.enumerated() {
+            //Act
+            let results = systemUnderTest.filterPosts(data: posts, filter: element)
+            
+            //Assert
+            switch index {
+            case 0:
+                XCTAssertEqual(results.count, 0)
+            case 1:
+                XCTAssertEqual(results.count, 0)
+            case 2:
+                XCTAssertEqual(results.count, 0)
+            case 3:
+                XCTAssertEqual(results.count, 1)
+            default:
+                break
+            }
+        }
+    }
+    
 }
+

@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
     @IBOutlet weak var favoriteButton: UIButton!
     @IBAction func favoriteBtnTapped(_ sender: UIButton) {
-        isFavorite = saveToFavorites(data: data, shouldSave: !isFavorite)
+        toggleFavorite(data: data)
     }
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -37,7 +37,9 @@ class ViewController: UIViewController, UIWebViewDelegate {
             } else {
                 buttonImageName = "icon-star-empty22.png"
             }
-            favoriteButton.setImage(UIImage(named: buttonImageName)!, for: UIControlState.normal)
+            if favoriteButton != nil {
+                favoriteButton.setImage(UIImage(named: buttonImageName)!, for: UIControlState.normal)
+            }
         }
     }
     
@@ -73,33 +75,38 @@ class ViewController: UIViewController, UIWebViewDelegate {
         return false
     }
     
-    private func saveToFavorites(data: Thing?, shouldSave: Bool) -> Bool {
+    func getIsFavorite() -> Bool {
+        return isFavorite
+    }
+    
+    func toggleFavorite(data: Thing?) {
         if data != nil {
             var favorites = UIDataManager.sharedInstance.favorites
             if favorites.count > 0 {
                 for (index, element) in favorites.enumerated() {
                     if element.id == data?.id {
-                        if shouldSave == false {
+                        if isFavorite {
                             //item exists - delete it
                             favorites.remove(at: index)
                             UIDataManager.sharedInstance.favorites = favorites
+                            isFavorite = false
+                            return
                         }
-                        return false
                     }
                 }
             }
-            //favorites doesn't exists OR item doesn't exist in favorites
-            if shouldSave {
+            if !isFavorite {
+                //favorites doesn't exists OR item doesn't exist in favorites
                 if data != nil {
                     favorites.append(data!)
                     UIDataManager.sharedInstance.favorites = favorites
-                    return true
+                    isFavorite = true
                 }
             }
         }
-        return false
     }
 
+    
     //MARK:- UIWebViewDelegate
     func webViewDidFinishLoad(_ webView: UIWebView) {
         if webView.isLoading {
@@ -113,5 +120,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         spinner.stopAnimating()
         print("didFailLoadWithError \(error.localizedDescription)")
     }
+    
+    
 }
 

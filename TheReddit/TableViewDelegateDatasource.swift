@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableViewDelegateDatasource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class TableViewDelegateDatasource: NSObject, UITableViewDataSource, UITableViewDelegate, NotificationCenterProtocol {
     
     let identifier = "Cell"
     var delegate: TableViewProtocol?
@@ -75,9 +75,19 @@ class TableViewDelegateDatasource: NSObject, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if data != nil && (data?.count)! > 10 {
             if indexPath.row == data!.count - 10 {
-                UIDataManager.sharedInstance.postNotification(UIDataManager.sharedInstance.notif_dataLoadingPoint, object: nil)
+                postNotificationName(name: UIDataManager.sharedInstance.notif_dataLoadingPoint, object: nil)
             }
         }
     }
+    
+    
+    //MARK:- NotificationCenterProtocol
+    func postNotificationName(name: String, object: AnyObject?) {
+        DispatchQueue.main.async {
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.post(name: Notification.Name(rawValue: name), object: object)
+        }
+    }
+    
     
 }

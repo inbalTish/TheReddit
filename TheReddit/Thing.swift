@@ -17,6 +17,7 @@ struct Thing {
     var thumbnail: String?
     var thumbnail_width: Int?
     
+    
     init(json: JSON) {
         kind = json["kind"].string
         id = json["data"]["id"].string

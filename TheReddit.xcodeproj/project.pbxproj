@@ -13,6 +13,11 @@
 		3B222BDA1F5050D50001C8B0 /* TableViewTestsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B222BD91F5050D50001C8B0 /* TableViewTestsSpec.swift */; };
 		3B222BDC1F5074B10001C8B0 /* icon-close40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B222BDB1F5074B10001C8B0 /* icon-close40.png */; };
 		3B222BDE1F50A4080001C8B0 /* UIDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B222BDD1F50A4080001C8B0 /* UIDataManager.swift */; };
+		3B222BFE1F5194720001C8B0 /* PostsDataMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B222BFD1F5194720001C8B0 /* PostsDataMock.json */; };
+		3B222C001F51A6320001C8B0 /* WebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B222BFF1F51A6320001C8B0 /* WebViewControllerTests.swift */; };
+		3B222C021F51BD550001C8B0 /* NotificationCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B222C011F51BD550001C8B0 /* NotificationCenterProtocol.swift */; };
+		3B222C061F51CCE70001C8B0 /* WebViewControllerStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B222C051F51CCE70001C8B0 /* WebViewControllerStory.storyboard */; };
+		3B222C081F51D77A0001C8B0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B222C071F51D77A0001C8B0 /* Utils.swift */; };
 		3B3E75A31F4FF6A5005FFCF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E75A21F4FF6A5005FFCF7 /* AppDelegate.swift */; };
 		3B3E75A51F4FF6A5005FFCF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E75A41F4FF6A5005FFCF7 /* ViewController.swift */; };
 		3B3E75A81F4FF6A5005FFCF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3E75A61F4FF6A5005FFCF7 /* Main.storyboard */; };
@@ -64,6 +69,11 @@
 		3B222BD91F5050D50001C8B0 /* TableViewTestsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTestsSpec.swift; sourceTree = "<group>"; };
 		3B222BDB1F5074B10001C8B0 /* icon-close40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-close40.png"; path = "../../../../Desktop/icon-close40.png"; sourceTree = "<group>"; };
 		3B222BDD1F50A4080001C8B0 /* UIDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDataManager.swift; sourceTree = "<group>"; };
+		3B222BFD1F5194720001C8B0 /* PostsDataMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostsDataMock.json; sourceTree = "<group>"; };
+		3B222BFF1F51A6320001C8B0 /* WebViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerTests.swift; sourceTree = "<group>"; };
+		3B222C011F51BD550001C8B0 /* NotificationCenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterProtocol.swift; sourceTree = "<group>"; };
+		3B222C051F51CCE70001C8B0 /* WebViewControllerStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebViewControllerStory.storyboard; sourceTree = "<group>"; };
+		3B222C071F51D77A0001C8B0 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3B3E759F1F4FF6A5005FFCF7 /* TheReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3E75A21F4FF6A5005FFCF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B3E75A41F4FF6A5005FFCF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 				3B222BD31F504E3C0001C8B0 /* TableViewProtocol.swift */,
 				3B222BD51F504EB50001C8B0 /* TableViewDelegateDatasource.swift */,
 				3B222BDD1F50A4080001C8B0 /* UIDataManager.swift */,
+				3B222C011F51BD550001C8B0 /* NotificationCenterProtocol.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -209,6 +220,8 @@
 				3B3E75B91F4FF6A7005FFCF7 /* Info.plist */,
 				3B3E75DC1F5011D4005FFCF7 /* RedditApiClientSpec.swift */,
 				3B222BD91F5050D50001C8B0 /* TableViewTestsSpec.swift */,
+				3B222BFF1F51A6320001C8B0 /* WebViewControllerTests.swift */,
+				3B222C071F51D77A0001C8B0 /* Utils.swift */,
 			);
 			path = TheRedditTests;
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 				3B3E75A61F4FF6A5005FFCF7 /* Main.storyboard */,
 				3B3E75F01F504707005FFCF7 /* PostTableViewCell.swift */,
 				3B3E75F11F504707005FFCF7 /* PostTableViewCell.xib */,
+				3B222C051F51CCE70001C8B0 /* WebViewControllerStory.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -263,6 +277,7 @@
 		3B3E75DE1F501BBF005FFCF7 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				3B222BFD1F5194720001C8B0 /* PostsDataMock.json */,
 				3B3E75DF1F501BBF005FFCF7 /* GetRedditListingSuccess.json */,
 			);
 			path = Fixtures;
@@ -398,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B222C061F51CCE70001C8B0 /* WebViewControllerStory.storyboard in Resources */,
 				3B3E75AD1F4FF6A5005FFCF7 /* LaunchScreen.storyboard in Resources */,
 				3B3E75AA1F4FF6A5005FFCF7 /* Assets.xcassets in Resources */,
 				3B3E75A81F4FF6A5005FFCF7 /* Main.storyboard in Resources */,
@@ -416,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3E75E01F501BBF005FFCF7 /* GetRedditListingSuccess.json in Resources */,
+				3B222BFE1F5194720001C8B0 /* PostsDataMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +590,7 @@
 			files = (
 				3B3E75D51F5003D6005FFCF7 /* RedditAPIClientProtocol.swift in Sources */,
 				3B222BDE1F50A4080001C8B0 /* UIDataManager.swift in Sources */,
+				3B222C021F51BD550001C8B0 /* NotificationCenterProtocol.swift in Sources */,
 				3B3E75A51F4FF6A5005FFCF7 /* ViewController.swift in Sources */,
 				3B222BD61F504EB50001C8B0 /* TableViewDelegateDatasource.swift in Sources */,
 				3B3E75E41F503441005FFCF7 /* FavoritesViewController.swift in Sources */,
@@ -590,9 +608,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B222C081F51D77A0001C8B0 /* Utils.swift in Sources */,
 				3B222BDA1F5050D50001C8B0 /* TableViewTestsSpec.swift in Sources */,
 				3B3E75DD1F5011D4005FFCF7 /* RedditApiClientSpec.swift in Sources */,
 				3B3E75B81F4FF6A7005FFCF7 /* TheRedditTests.swift in Sources */,
+				3B222C001F51A6320001C8B0 /* WebViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

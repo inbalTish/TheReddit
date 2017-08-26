@@ -11,4 +11,5 @@ import Foundation
 protocol TableViewProtocol {
     
     func didSelectCell(data: Any)
+    
 }

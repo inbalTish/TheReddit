@@ -25,7 +25,7 @@ class RedditApiClientSpec: QuickSpec {
                     let data = NSData(contentsOfFile: path)!
                     self.stub(uri("https://www.reddit.com/r/ProgrammerHumor/top.json"), jsonData(data as Data))
                     
-                    RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", onSuccess: { data in
+                    RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", query: "", onSuccess: { data in
                         
                         listingData = data
                     })
@@ -43,7 +43,7 @@ class RedditApiClientSpec: QuickSpec {
                     var returnedError: NSError?
                     let error = NSError(domain: "Reddit page not found error", code: 404, userInfo: nil)
                     self.stub(uri("https://www.reddit.com/r/ProgrammerHumor/top.json"), failure(error))
-                    RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", onError: { error in
+                    RedditAPIClient.requestRedditChennelListing(channelName: "ProgrammerHumor", subredditName: "top", query: "", onError: { error in
                         returnedError = error
                     })
                     

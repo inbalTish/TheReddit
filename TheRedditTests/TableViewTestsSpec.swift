@@ -60,7 +60,6 @@ class TableViewtestsSpec: QuickSpec {
 }
 
 class TableViewDelegateMock: TableViewProtocol {
-    
     var isCellSelected: Bool = false
     var data: Any?
     

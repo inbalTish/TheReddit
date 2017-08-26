@@ -36,11 +36,11 @@ class TheRedditUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testFavoriteSelection() {
-        let cell = app.collectionViews.children(matching:.any).element(boundBy: 0)
-        if cell.exists {
-            cell.tap()
-        }
-    }
+    func testFavoriteSelectionFlow() {
+        XCUIApplication().tables.staticTexts["Why did the programmer quit his job?"].tap()
+            XCUIApplication().buttons["star"].tap()
+        XCUIApplication().buttons["The Reddit"].tap()
+        XCUIApplication().buttons["Favorites"].tap()
+  }
     
 }

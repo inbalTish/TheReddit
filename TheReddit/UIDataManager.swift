@@ -18,13 +18,4 @@ class UIDataManager {
     var notif_dataLoadingPoint = "reachedDataLoadingPoint"
     
     
-    //MARK:- Shard functions
-    func postNotification(_ name: String, object: AnyObject?) {
-        DispatchQueue.main.async {
-            let notificationCenter = NotificationCenter.default
-            notificationCenter.post(name: Notification.Name(rawValue: name), object: object)
-        }
-    }
-    
-    
 }
