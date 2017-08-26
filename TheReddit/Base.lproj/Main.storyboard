@@ -141,7 +141,7 @@
         <scene sceneID="qFw-LU-hDq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c8G-2s-pHP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="icon-heart22.png" selectedImage="icon-heart22.png" id="Ok8-p9-wyv"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="icon-star22.png" selectedImage="icon-star22.png" id="Ok8-p9-wyv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kSD-Qq-rcR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -158,7 +158,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-heart22.png" width="22" height="22"/>
         <image name="icon-home22.png" width="22" height="22"/>
+        <image name="icon-star22.png" width="22" height="22"/>
     </resources>
 </document>

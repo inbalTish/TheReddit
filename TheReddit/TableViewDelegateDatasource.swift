@@ -81,13 +81,4 @@ class TableViewDelegateDatasource: NSObject, UITableViewDataSource, UITableViewD
     }
     
     
-    //MARK:- NotificationCenterProtocol
-    func postNotificationName(name: String, object: AnyObject?) {
-        DispatchQueue.main.async {
-            let notificationCenter = NotificationCenter.default
-            notificationCenter.post(name: Notification.Name(rawValue: name), object: object)
-        }
-    }
-    
-    
 }
