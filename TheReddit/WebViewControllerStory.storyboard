@@ -32,7 +32,6 @@
                                     <constraint firstAttribute="width" constant="22" id="c2y-yz-0YI"/>
                                     <constraint firstAttribute="height" constant="22" id="iuZ-SH-UfE"/>
                                 </constraints>
-                                <state key="normal" image="icon-close40.png"/>
                                 <connections>
                                     <action selector="dismissBtnTapped:" destination="QFc-aI-2Q0" eventType="touchUpInside" id="gTU-bM-WXb"/>
                                 </connections>
@@ -80,7 +79,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-close40.png" width="40" height="40"/>
         <image name="icon-star-empty22.png" width="22" height="22"/>
     </resources>
 </document>
