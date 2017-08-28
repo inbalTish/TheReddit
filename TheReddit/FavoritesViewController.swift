@@ -73,7 +73,7 @@ class FavoritesViewController: UIViewController, TableViewProtocol {
     
     func openWebViewController() {
         let storyboard = UIStoryboard(name: "WebViewControllerStory", bundle: Bundle.main)
-        let vc = storyboard.instantiateInitialViewController() as! ViewController
+        let vc = storyboard.instantiateInitialViewController() as! WebViewController
         vc.data = selectedThing
         self.navigationController?.pushViewController(vc, animated: true)
     }

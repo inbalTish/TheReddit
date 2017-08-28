@@ -37,7 +37,7 @@ class TheRedditUITests: XCTestCase {
     }
     
     func testFavoriteSelectionFlow() {
-        XCUIApplication().tables.staticTexts["Why did the programmer quit his job?"].tap()
+        XCUIApplication().tables.staticTexts["readme"].tap()
             XCUIApplication().buttons["star"].tap()
         XCUIApplication().buttons["The Reddit"].tap()
         XCUIApplication().buttons["Favorites"].tap()

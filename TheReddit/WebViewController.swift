@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WebViewController.swift
 //  TheReddit
 //
 //  Created by Inbal Tish on 25/08/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class WebViewController: UIViewController, UIWebViewDelegate {
     
     //MARK:- IBOutlets
     @IBOutlet weak var pageWebView: UIWebView!

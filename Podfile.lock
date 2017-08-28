@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Mockingjay (2.0.0):
+    - Mockingjay/Core (= 2.0.0)
+    - Mockingjay/XCTest (= 2.0.0)
+  - Mockingjay/Core (2.0.0):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.0):
+    - Mockingjay/Core
+  - Nimble (7.0.0)
+  - Quick (1.1.0)
+  - SwiftyJSON (3.1.4)
+  - URITemplate (2.0.1)
+
+DEPENDENCIES:
+  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, tag `4.5.0`)
+  - Mockingjay
+  - Nimble
+  - Quick
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire.git
+    :tag: 4.5.0
+
+CHECKOUT OPTIONS:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire.git
+    :tag: 4.5.0
+
+SPEC CHECKSUMS:
+  Alamofire: 2983f0804e7566e66b937f5e7ef4aeba7b910426
+  Mockingjay: 7122a3fc0597aa63438e4cd9b71b7bc8aac05b87
+  Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  URITemplate: 720b8a56a281494d7c2d31ee33183986eaed2c67
+
+PODFILE CHECKSUM: c25926b86b922ab4990acd455cf01a84db7b2911
+
+COCOAPODS: 1.2.0
